@@ -13,12 +13,13 @@ class Pessoa:
 if __name__ == '__main__':
     # Objeto comum - instância da classe Pessoa
     filho = Pessoa(nome='Giancarlo', idade=34)
+
     # Objeto com atributo complexo
     mae = Pessoa(filho, nome='Bernadete', idade=18)
 
     print(filho.nome)
     print(mae.nome)
-    print()
 
-    for filho in mae.filhos:
-        print(filho.nome)
+    # Atributo dinâmico 'sobrenome', adicionado ao objeto 'filho' em tempo de execução
+    filho.sobrenome = "Silva"
+    print(filho.nome, filho.sobrenome)
