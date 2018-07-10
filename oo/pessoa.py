@@ -1,4 +1,8 @@
 class Pessoa:
+    # Atributo de classe (também chamado de Atributo "default"). Deve ser usado se o valor for igual para
+    # todas as instâncias da classe.
+    olhos = 2
+
     # Atributos
     def __init__(self, *filhos, nome=None, idade=None):
         self.nome = nome
@@ -23,3 +27,8 @@ if __name__ == '__main__':
     # Atributo dinâmico 'sobrenome', adicionado ao objeto 'filho' em tempo de execução
     filho.sobrenome = "Silva"
     print(filho.nome, filho.sobrenome)
+
+    # Atributos de classe "olhos"
+    print(Pessoa.olhos)
+    print(filho.olhos)
+    print(mae.olhos)
