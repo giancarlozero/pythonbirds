@@ -14,6 +14,17 @@ class Pessoa:
     def cumprimentar(self):
         return f'Olá {id(self)}'
 
+    # Método de classe, que independe do objeto e por isso não precisa receber nenhum atributo (não há 'self').
+    # Para criar, utiliza-se um decorator chamado @staticmethod ou
+    @staticmethod
+    def metodo_estatico():
+        return 42
+
+    @classmethod
+    def nome_e_atributos_de_classe(cls):
+        return f'{cls} - Olhos: {cls.olhos}'
+
+
 if __name__ == '__main__':
     # Objeto comum - instância da classe Pessoa
     filho = Pessoa(nome='Giancarlo', idade=34)
@@ -32,3 +43,10 @@ if __name__ == '__main__':
     print(Pessoa.olhos)
     print(filho.olhos)
     print(mae.olhos)
+
+    # Chamando os métodos estáticos
+    print(Pessoa.metodo_estatico())
+    print(filho.metodo_estatico())
+
+    print(Pessoa.nome_e_atributos_de_classe())
+    print(filho.nome_e_atributos_de_classe())
