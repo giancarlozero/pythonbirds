@@ -24,6 +24,9 @@ class Pessoa:
     def nome_e_atributos_de_classe(cls):
         return f'{cls} - Olhos: {cls.olhos}'
 
+# Classe 'Homem', que herda os atributos e métodos da superclasse 'Pessoa'
+class Homem(Pessoa):
+    pass
 
 if __name__ == '__main__':
     # Objeto comum - instância da classe Pessoa
@@ -50,3 +53,11 @@ if __name__ == '__main__':
 
     print(Pessoa.nome_e_atributos_de_classe())
     print(filho.nome_e_atributos_de_classe())
+
+    irmao = Homem(nome='Eduardo', idade=37)
+
+    print(irmao.nome)
+
+    print(isinstance(irmao, Pessoa))
+    print(isinstance(filho, Pessoa))
+    print(isinstance(filho, Homem))
