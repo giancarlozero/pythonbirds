@@ -12,7 +12,7 @@ class Pessoa:
 
     # Método cumprimentar
     def cumprimentar(self):
-        return f'Olá {id(self)}'
+        return f'Olá, meu nome é {self.nome}'
 
     # Método de classe, que independe do objeto e por isso não precisa receber nenhum atributo (não há 'self').
     # Para criar, utiliza-se um decorator chamado @staticmethod ou
@@ -26,7 +26,14 @@ class Pessoa:
 
 # Classe 'Homem', que herda os atributos e métodos da superclasse 'Pessoa'
 class Homem(Pessoa):
-    pass
+    def cumprimentar(self):
+        # Sobrescrita de método
+        cumprimentar_classe_pai = super().cumprimentar()
+        return f'{cumprimentar_classe_pai}. Aperto de mão'
+
+class Mutante(Pessoa):
+    # Sobrescrita de atributo
+    olhos = 3
 
 if __name__ == '__main__':
     # Objeto comum - instância da classe Pessoa
@@ -61,3 +68,14 @@ if __name__ == '__main__':
     print(isinstance(irmao, Pessoa))
     print(isinstance(filho, Pessoa))
     print(isinstance(filho, Homem))
+
+    print(filho.olhos)
+
+    mutante = Mutante(nome='Wolverine', idade=80)
+
+    print(mutante.olhos)
+
+    print(filho.cumprimentar())
+    print(mae.cumprimentar())
+
+    print(irmao.cumprimentar())
